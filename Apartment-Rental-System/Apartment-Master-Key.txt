@@ -1,0 +1,19 @@
+&keycode Apartment Master Key=x
+&assigned Apartment Master Key=x
+&cmd-checkin Apartment Master Key=$checkin:@pemit [v(mysuper)]=checkin %n~%#~[v(roomnum)]~[v(keycode)]~[v(assigned)]
+&roomnum Apartment Master Key=ALL
+&roomdbref Apartment Master Key=x
+&exitdbref Apartment Master Key=x
+&L6FS34DH6HGDK3F Apartment Master Key=x
+&mysuper Apartment Master Key=x
+&mydirectory Apartment Master Key=x
+&good-response-p-u Apartment Master Key=You turn the key and leave the door unlocked.
+&good-response-o-u Apartment Master Key=turns the key and leaves the door unlocked.
+&good-response-p-l Apartment Master Key=You turn the key and lock the door again.
+&good-response-o-l Apartment Master Key=turns the key and locks the door again.
+&bad-response-1p Apartment Master Key=You try the key in the lock, but it doesn't seem to be the right fit.
+&bad-response-1o Apartment Master Key=tries @@ key in the lock, but it doesn't seem to be the right fit.
+&bad-response-2p Apartment Master Key=You need to be outside your apartment door to do that.
+&bad-response-2o Apartment Master Key=looks around with a key in @@ hand and a confused expression. There doesn't seem to be a lock anywhere to use it in.
+&cmd-unlock Apartment Master Key=$unlock *: &temp_verify me=switch(0,strmatch(decrypt([v(keycode)],name([v(assigned)])),[v(roomnum)]),bad1,strmatch(name(loc(here)),cat(cat(Floor,mid([v(roomnum)],0,1)),- The Undead Arms)),bad2,good); @pemit [v(mydirectory)]=if(strmatch([v(temp_verify)],good),unlockverify L6FS34DH6HGDK3F [v(exitdbref)]); @pemit %#=switch([v(temp_verify)],good,[v(good-response-p-u)],bad1,[v(bad-response-1p)],bad2,[v(bad-response-2p)],Error K-L-V); @oemit %#=switch([v(temp_verify)],good,strcat(%n,%b,[v(good-response-o-u)]),bad1,strcat(%n,%b,before([v(bad-response-1o)],@@),poss(%#),after([v(bad-response-1o)],@@)),bad2,strcat(%n,%b,before([v(bad-response-2o)],@@),poss(%#),after([v(bad-response-2o)],@@)),Error K-L-V); &temp_verify me=
+&cmd-lockup Apartment Master Key=$lock *: &temp_verify me=switch(0,strmatch(decrypt([v(keycode)],name([v(assigned)])),[v(roomnum)]),bad1,strmatch(name(loc(here)),cat(cat(Floor,mid([v(roomnum)],0,1)),- The Undead Arms)),bad2,good); @pemit [v(mydirectory)]=if(strmatch([v(temp_verify)],good),lockverify L6FS34DH6HGDK3F [v(exitdbref)]~[v(roomnum)]); @pemit %#=switch([v(temp_verify)],good,[v(good-response-p-l)],bad1,[v(bad-response-1p)],bad2,[v(bad-response-2p)],Error K-L-V); @oemit %#=switch([v(temp_verify)],good,strcat(%n,%b,[v(good-response-o-l)]),bad1,strcat(%n,%b,before([v(bad-response-1o)],@@),poss(%#),after([v(bad-response-1o)],@@)),bad2,strcat(%n,%b,before([v(bad-response-2o)],@@),poss(%#),after([v(bad-response-2o)],@@)),Error K-L-V); &temp_verify me= 
