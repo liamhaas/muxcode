@@ -1,0 +1,19 @@
+Installation for Apartment rental code
+--------------------------------------
+
+1. Do all of this from a wizard character. 
+2. @create the Front Desk Attendant first. Search and replace #FDNUM in all files with the Front Desk Attendant's dbref.
+3. @create the Apartment Master Key. Search and replace #MKNUM in all files with the Apartment Master Key's dbref.
+4. Search and replace #OWNUM in all files with the building character's dbref.
+5. Search and replace #RPNUM in all files with the dbref of the room parent you would like to use for the apartment spaces, or remove #RPNUM if you do not want to use a parent.
+6. Search and replace #DPNUM in all files with the dbref of the room parent you would like to use for the hallway spaces outside of the apartments, or remove #DPNUM if you do not want to use a parent.
+7. Search and replace #TPNUM in all files with the dbref of the room parent you would like to use for the top floor apartment spaces, or remove #DPNUM if you do not want to use a parent.
+8. Search and replace #BPNUM in all files with the dbref of the room parent you would like to use for the basement apartment spaces, or remove #DPNUM if you do not want to use a parent.
+9. @dig a room that will serve as communal roof access space. Search and replace #RANUM in all files with the rooms dbref, and #APNUM in all files with the dbref of the room parent you'd like to use for the roof access area. Remove #APNUM if you do not want to use a parent.
+10. Load the Front Desk Attendant's code.
+11. Load the Master Key's code.
+12. @dig a room whose name follows this format: Floor X - <apartment name>. For example: Floor 5 - Willow Creek Condos
+13. In the room created in step 10, create the Floor Superintendent and the Floor Directory. Load their code onto them.
+14. The Front Desk Attendant supports renting of standard rooms, top floor rooms (ie nice lofts with two physical rooms inside and roof access) and basement rooms (no windows, only relevant if you're using a room parent system that includes window simulation). The setup we just did was for a standard room. Setting up a basement floor and a top floor are identical procedures - just call them 'Floor B' and 'Floor T' respectively, and use the code for a Basement Superintendent and Top Floor Superintendent. The directories are the same across all room types.
+15. The code as-is supports one basement floor, four standard floors, and one top floor, each with nine rooms. This can be expanded easily by editting ROOMSAVAILABLE, BROOMSAVAILABLE, and TROOMSAVAILABLE on the Front Desk Attendant.
+16. Feel free to edit the responses and dialogue of the front desk lady and the super as fits the flavor of your setting, but try to keep the @@ and ?? designators in place as these are tied into the code and are harder to edit.
