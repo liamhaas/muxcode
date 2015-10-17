@@ -1,0 +1,10 @@
+@create Floor [mid([name(here)],6,1)] Directory
+drop directory
+@set directory=monitor
+@set directory=inherit
+@desc directory=cat(strcat(%b%b%b%b%b<,get(directory/myfloor),00,>),- The Superintendent)
+@lock directory=me
+@force directory=&myfloor me=[mid([name(here)],6,1)]
+@va directory=^unlockverify L6FS34DH6HGDK3F *:@unlock %0
+@vb directory=^lockverify L6FS34DH6HGDK3F *~*:@lock %0=L6FS34DH6HGDK3F:x & roomnum:%1
+@pemit #FDNUM=reg dir [get(directory/myfloor)]~[num(directory)]
